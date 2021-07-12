@@ -42,12 +42,13 @@ func RemainderSorting(strArr []string) []string {
 		}
 	}
 
+	//sort slice t,u and k in alphabetical order
 	c := collate.New(language.Und, collate.IgnoreCase)
 	c.SortStrings(t)
 	c.SortStrings(u)
 	c.SortStrings(k)
 
-	//push elements of slice u into slice t
+	//push elements of slice u and k into slice t
 	for j := range u {
 		t = append(t, u[j])
 	}
