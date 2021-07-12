@@ -7,6 +7,10 @@ import (
 	"golang.org/x/text/language"
 )
 
+func Remainder(l int) int {
+	return l % 3
+}
+
 func RemainderSorting(strArr []string) []string {
 	//create 3 empty slices t, u, k
 	var t []string
@@ -15,12 +19,25 @@ func RemainderSorting(strArr []string) []string {
 	//if modulo of 3 push array element to slice t
 	//else push array element with 1 remainder into slice u
 	//else push array element with 2 remainder into slice k
+
+	// for i := range strArr {
+	// 	if len(strArr[i])%3 == 0 {
+	// 		t = append(t, strArr[i])
+	// 	} else if len(strArr[i])%3 == 1 {
+	// 		u = append(u, strArr[i])
+	// 	} else if len(strArr[i])%3 == 2 {
+	// 		k = append(k, strArr[i])
+	// 	}
+	// }
+
 	for i := range strArr {
-		if len(strArr[i])%3 == 0 {
+		remainder := Remainder(len(strArr[i]))
+		switch remainder {
+		case 0:
 			t = append(t, strArr[i])
-		} else if len(strArr[i])%3 == 1 {
+		case 1:
 			u = append(u, strArr[i])
-		} else if len(strArr[i])%3 == 2 {
+		case 2:
 			k = append(k, strArr[i])
 		}
 	}
